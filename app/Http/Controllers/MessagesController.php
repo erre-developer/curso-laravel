@@ -8,6 +8,6 @@ class MessagesController extends Controller
 {
     public function store()
     {
-        return request();
+        return request(); 
     }
 }

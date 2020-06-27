@@ -10,6 +10,6 @@ Route::get('/portafolio','PortafolioController@index')->name('portafolio');
 
 //Route::resource('portafolio', 'PortafolioController@index');
 
-Route::post('contacto', 'MessagesController@store');
+Route::post('contacto', 'MessagesController@store'); 
 
 
