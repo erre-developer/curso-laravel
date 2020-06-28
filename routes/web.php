@@ -10,6 +10,7 @@ Route::get('/portafolio','PortafolioController@index')->name('portafolio');
 
 //Route::resource('portafolio', 'PortafolioController@index');
 
-Route::post('contacto', 'MessagesController@store'); 
+            //nombre ruta URL                   Controlador                   nombre ruta invocada en el actions
+Route::post('contactoPostMessagesController', 'MessagesController@store')->name('contactoPost');
 
 
