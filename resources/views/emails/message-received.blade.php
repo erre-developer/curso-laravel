@@ -9,7 +9,7 @@
 <body> 
     <h3>Mensaje Recivido</h3>
     <br>
-    <p>Reciviste un mensaje de: {{ $mensaje['name'] }} - {{ $mensaje['email'] }}</p>
+    <p>From: {{ $mensaje['name'] }} - {{ $mensaje['email'] }}</p>
     <p><strong>Asunto:</strong> {{ $mensaje['subject'] }}</p>
     <p><strong>Contenido:</strong> {{ $mensaje['content'] }}</p>
 </body>
