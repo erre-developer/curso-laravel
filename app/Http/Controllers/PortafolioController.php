@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Project;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use League\CommonMark\Extension\Table\Table;
 
 class PortafolioController extends Controller
 {
@@ -13,15 +16,19 @@ class PortafolioController extends Controller
      */
     public function index()
     {
-        $portafolio = [
-            ['title' => 'Proyecto #1'],
-            ['title' => 'Proyecto #2'],
-            ['title' => 'Proyecto #3'],
-            ['title' => 'Proyecto #4'],
-            ['title' => 'Proyecto #5']
-        ];
+        //forma 1
+        //$portafolio = Project::orderBy('created_at', 'DESC')->get();
+        
+        //Forma latest -- ocupar paginate -- defecto 15 listas de paginacion 
+        /* $projects = Project::latest()->paginate();
 
-        return view('portafolio' , compact('portafolio'));
+        return view('portafolio' , compact('projects')); */
+
+        //forma corta mismo resultado
+
+        return view('portafolio' , [
+            'projects' => Project::latest()->paginate()
+        ]);
     }
 
     /**
