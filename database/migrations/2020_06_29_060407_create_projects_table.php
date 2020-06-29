@@ -17,7 +17,8 @@ class CreateProjectsTable extends Migration
             $table->id()->autoIncrement();
             $table->string('title');
             //text es mas grande que string
-            $table->text('descrition');
+            $table->string('url')->unique();
+            $table->text('description');
             $table->timestamps();
         });
     }

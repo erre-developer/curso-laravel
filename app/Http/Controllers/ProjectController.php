@@ -38,7 +38,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('projects.create');
     }
 
     /**
@@ -47,9 +47,24 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    //public function store(Request $request) -- con metodo
+    //$request->get('title');
+    public function store() // con funcion
     {
-        //
+                //metodo de laravel
+        Project::create([
+            //base de dato     dato del request
+            'title'=> request('title'),
+            'url'=> request('url'),
+            'description'=> request('description'),
+        ]);
+
+        // //Segunda manera de enviar datos con el all request
+        // //ya que tienen los mismos datos y parametros de la Data Base
+        // Project::create(request()->all());
+
+        return redirect()->route('projects.index');
+
     }
 
     /**
@@ -58,16 +73,21 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Project $project)
     {
         //Laravel automaticamente lo transforma en formato jason
 
         //find - findOrFail
-        $project =  Project::findOrFail($id);
+        // $project =  Project::findOrFail($id);
 
-        return view('projects.show', [
+        // return view('projects.show', [
+        //     'project' => $project
+        //     ]);
+
+        //ROUTE MODEL BINDING
+        return view('projects.show',[
             'project' => $project
-            ]);
+        ]);
     }
 
     /**
