@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use League\CommonMark\Extension\Table\Table;
 
-class PortafolioController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,9 +25,9 @@ class PortafolioController extends Controller
         return view('portafolio' , compact('projects')); */
 
         //forma corta mismo resultado
-
-        return view('portafolio' , [
-            'projects' => Project::latest()->paginate()
+        //latest : mas reciente  -- olest : mas antiguo  de los creado
+        return view('projects.index' , [
+            'projects' => Project::oldest()->paginate()
         ]);
     }
 
@@ -60,7 +60,14 @@ class PortafolioController extends Controller
      */
     public function show($id)
     {
-        //
+        //Laravel automaticamente lo transforma en formato jason
+
+        //find - findOrFail
+        $project =  Project::findOrFail($id);
+
+        return view('projects.show', [
+            'project' => $project
+            ]);
     }
 
     /**
