@@ -7,10 +7,12 @@
     <title>Emails</title>
 </head>
 <body> 
-    <h3>Mensaje Recivido</h3>
+    <h3>Mensaje desde Laravel.test/Contacto</h3>
     <br>
     <p>From: {{ $mensaje['name'] }} - {{ $mensaje['email'] }}</p>
+    <p>------------------------------------------------------------------------------</p>
     <p><strong>Asunto:</strong> {{ $mensaje['subject'] }}</p>
+    <p>------------------------------------------------------------------------------</p>
     <p><strong>Contenido:</strong> {{ $mensaje['content'] }}</p>
 </body>
 </html>

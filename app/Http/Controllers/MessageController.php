@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Mail;
 
 use PhpParser\Node\Stmt\Return_;
 
-class MessagesController extends Controller
+class MessageController extends Controller
 {
     public function store()
     {
@@ -25,7 +25,7 @@ class MessagesController extends Controller
 
         Mail::to('richardfoncea@gmail.com')->queue(new MessageReceived($mensaje));
 
-        return 'Mensaje enviado';
+        return 'Mensaje enviado correctamente';
 
     }
     

@@ -10,7 +10,7 @@ use Illuminate\Queue\SerializesModels;
 class MessageReceived extends Mailable
 {
     use Queueable, SerializesModels;
-    public $subject = 'Mensaje recivido';
+    public $subject = 'Mensaje recibido';
     public $mensaje;
 
     /**
