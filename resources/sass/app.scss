@@ -6,3 +6,8 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.active a {
+    color: rgb(216, 19, 51);
+    text-decoration: none;
+}

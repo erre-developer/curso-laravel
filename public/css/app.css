@@ -10928,3 +10928,8 @@ a.text-dark:focus {
   }
 }
 
+.active a {
+  color: #d81333;
+  text-decoration: none;
+}
+
