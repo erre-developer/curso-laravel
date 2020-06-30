@@ -52,16 +52,29 @@ class ProjectController extends Controller
     public function store() // con funcion
     {
                 //metodo de laravel
-        Project::create([
-            //base de dato     dato del request
-            'title'=> request('title'),
-            'url'=> request('url'),
-            'description'=> request('description'),
-        ]);
+        // Project::create([
+        //     //base de dato     dato del request
+        //     'title'=> request('title'),
+        //     'url'=> request('url'),
+        //     'description'=> request('description'),
+        // ]);
 
         // //Segunda manera de enviar datos con el all request
         // //ya que tienen los mismos datos y parametros de la Data Base
         // Project::create(request()->all());
+
+        //--------------------------------------------
+       // Project::create(request()->only('title','url')); --solo title y url
+
+       //validacion de campos contra la asignacion masiva
+       $fields = request()->validate([
+                'title'=> 'required',
+                'url'=> 'required',
+                'description'=> 'required|min:10'
+                ]);
+
+       Project::create($fields); 
+
 
         return redirect()->route('projects.index');
 
@@ -88,6 +101,8 @@ class ProjectController extends Controller
         return view('projects.show',[
             'project' => $project
         ]);
+
+        
     }
 
     /**
