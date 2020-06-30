@@ -4,9 +4,11 @@
 
 @section('content')
     <h1>Portafolio</h1>
-    <a href="{{ route('projects.create') }}">Crear nuevo proyecto</a>
-    <br><br>
-
+    
+    @auth
+        <a href="{{ route('projects.create') }}">Crear nuevo proyecto</a>
+    @endauth
+    <br>
     @include('partials.session-status')
     
     @forelse ($projects as $project)
