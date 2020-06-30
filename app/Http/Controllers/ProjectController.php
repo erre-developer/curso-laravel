@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateProjectRequest;
 use App\Project;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -49,7 +50,7 @@ class ProjectController extends Controller
      */
     //public function store(Request $request) -- con metodo
     //$request->get('title');
-    public function store() // con funcion
+    public function store(CreateProjectRequest $request) // con funcion
     {
                 //metodo de laravel
         // Project::create([
@@ -67,13 +68,16 @@ class ProjectController extends Controller
        // Project::create(request()->only('title','url')); --solo title y url
 
        //validacion de campos contra la asignacion masiva
-       $fields = request()->validate([
-                'title'=> 'required',
-                'url'=> 'required',
-                'description'=> 'required|min:10'
-                ]);
+    //    $fields = request()->validate([
+    //             'title'=> 'required',
+    //             'url'=> 'required',
+    //             'description'=> 'required|min:10'
+    //             ]);
 
-       Project::create($fields); 
+    //    Project::create($fields); 
+
+    //Project::create($request()->all());
+    Project::create($request->validated());
 
 
         return redirect()->route('projects.index');
