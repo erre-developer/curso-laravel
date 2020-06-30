@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PortafolioControler;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::view('/', 'home')->name('home');
 Route::view('/about', 'about')->name('about');
@@ -29,5 +30,6 @@ Route::view('/contacto', 'contact')->name('contacto');
 Route::post('contactoPostMessageController', 'MessageController@store')->name('contactoPost');
 
 
+Auth::routes(['register'=>false]);
 
-
+// Route::get('/home', 'HomeController@index')->name('home');
