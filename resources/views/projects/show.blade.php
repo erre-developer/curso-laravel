@@ -4,6 +4,10 @@
 
 @section('content')
 
+    @include('partials.validation-errors')
+    
+    @include('partials.session-status')
+
     <h1>{{$project->title }}</h1>
     <a href="{{ route('projects.edit',$project)}}">Editar</a>
     

@@ -7,6 +7,8 @@
     <a href="{{ route('projects.create') }}">Crear nuevo proyecto</a>
     <br><br>
 
+    @include('partials.session-status')
+    
     @forelse ($projects as $project)
 
         <li><a href=" {{ route('projects.show', $project) }}">  {{$project->title}}  </a></li>

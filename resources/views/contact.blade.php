@@ -5,6 +5,8 @@
 @section('content')
     <h1>Contacto</h1>
 
+    @include('partials.session-status')
+
 <form method="POST" action="{{ route('contactoPost') }}">
     @csrf
     

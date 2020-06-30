@@ -7,6 +7,8 @@
 
     @include('partials.validation-errors')
 
+    @include('partials.session-status')
+    
     <form method="POST" action="{{ route('projects.store') }}">
         
         @include('projects._form',['btnText'=>'Guardar'])

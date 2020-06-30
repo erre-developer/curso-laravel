@@ -25,7 +25,8 @@ class MessageController extends Controller
 
         Mail::to('richardfoncea@gmail.com')->queue(new MessageReceived($mensaje));
 
-        return 'Mensaje enviado correctamente';
+        //metodo back funciona como redirect
+        return back()->with('status','Recibimos tu correo, te responderemos');
 
     }
     
