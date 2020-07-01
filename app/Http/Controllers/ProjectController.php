@@ -38,7 +38,7 @@ class ProjectController extends Controller
         //forma corta mismo resultado
         //latest : mas reciente  -- olest : mas antiguo  de los creado
         return view('projects.index' , [
-            'projects' => Project::oldest()->paginate()
+            'projects' => Project::oldest()->paginate(5)
         ]);
     }
 

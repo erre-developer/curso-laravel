@@ -8,14 +8,11 @@
 
         <div class="row">
             <div class="col-12 col-sm-8 col-lg-7 mx-auto">
-                
-                @include('partials.session-status')
-
                 <form class="bg-white shadow rounded py-3 px-4" method="POST" action="{{ route('contactoPost') }}">
                     @csrf
                 
                     <h1 class="display-4">Contacto</h1>
-
+                    <hr>
                     <div class="form-group">
                         <label for="name">Nombre</label>
                         <input class="form-control bg-light shadow @error('name') is-invalid @else  border-0 @enderror" type="text" id="name" name="name" placeholder="Nombre..." value="{{ old('name') }}">

@@ -21,8 +21,8 @@
                     </li>
 
                     @else 
-                    <li>
-                        <a href="#" onclick="event.preventDefault();
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
                         Cerrar Sesion</a>
                     </li>
